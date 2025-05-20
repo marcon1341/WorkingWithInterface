@@ -8,9 +8,9 @@ public class Person implements Comparable<Person>{
         this.lastName = lastName;
         this.age = age;
     }
-    public String getFirstName() { return firstName; }
-    public String getLastName() { return lastName; }
-    public int getAge() { return age; }
+    public String getFirstName() { return this.firstName; }
+    public String getLastName() { return this.lastName; }
+    public int getAge() { return this.age; }
 
     @Override
     public String toString(){
@@ -19,12 +19,12 @@ public class Person implements Comparable<Person>{
 
     @Override
     public int compareTo(Person other) {
-        int last = this.lastName.compareTo(other.lastName);
+        int last = this.lastName.compareTo(other.getLastName());
         if(last != 0)return last;
 
-        int first = this.firstName.compareTo(other.firstName);
+        int first = this.firstName.compareTo(other.getFirstName());
         if(first != 0) return first;
 
-        return Integer.compare(this.age, other.age);
+        return Integer.compare(this.age, other.getAge());
     }
 }
